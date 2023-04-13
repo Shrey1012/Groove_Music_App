@@ -13,7 +13,7 @@ import { links } from '../assets/constants';
 // ];
 
 const NavLinks = ({ handleClick }) => (
-  <div className="mt-10">
+  <div className="mt-4">
     {links.map((item) => (
       <NavLink
         key={item.name}
