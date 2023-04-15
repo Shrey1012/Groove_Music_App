@@ -12,7 +12,8 @@ const SongCardNew = ({ song, isPlaying, activeSong, i, data }) => {
   };
 
   const handlePlayClick = () => {
-    dispatch(setActiveSong({ song, i, data }));
+    const songs = song.item;
+    dispatch(setActiveSong({ song: songs, i, data }));
     dispatch(playPause(true));
   };
 
@@ -21,7 +22,7 @@ const SongCardNew = ({ song, isPlaying, activeSong, i, data }) => {
       <div className="relative w-full h-56 group">
         <div
           className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${
-            activeSong?.title === song.item?.title || activeSong?.title === song.item?.name
+            activeSong?.title === song.item?.title
               ? "flex bg-black bg-opacity-70"
               : "hidden"
           }`}
@@ -34,20 +35,20 @@ const SongCardNew = ({ song, isPlaying, activeSong, i, data }) => {
             handlePlay={handlePlayClick}
           />
         </div>
-        <img src={song.item?.header_image_thumbnail_url || song.item?.cover_art_thumbnail_url} alt="song_img" />
+        <img src={song.item?.header_image_thumbnail_url} alt="song_img" />
         <div className="mt-4 flex flex-col">
           <p className="font-semibold text-lg text-white truncate">
-            <Link to={`/songs/${song.item.id}`}>{song.item.title || song.item.name}</Link>
+            <Link to={`/songs/${song.item.id}`}>{song.item.title}</Link>
           </p>
           <p className="text-sm truncate text-gray-300 mt-1">
             <Link
               to={
                 song.item.artists_names
-                  ? `/artists/${song?.item.primary_artist?.id || song?.item.artist.id}`
+                  ? `/artists/${song?.item.primary_artist?.id}`
                   : "/top-artists"
               }
             >
-              {song.item.artist_names || song.item.artist.name}
+              {song.item.artist_names}
             </Link>
           </p>
         </div>
