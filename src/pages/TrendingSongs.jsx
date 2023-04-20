@@ -20,7 +20,7 @@ const TrendingSongs = () => {
       </h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-16">
-        {data?.chart_items?.slice(0, 6).concat(data?.chart_items?.slice(7)).map((song, i) => (
+        {data?.chart_items?.map((song, i) => (
           <SongCardNew
             key={song.item.id}
             song={song}

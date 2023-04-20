@@ -15,7 +15,7 @@ const TopArtists = () => {
       <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">Top artists</h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.tracks?.slice(1).map((track) => <ArtistCard key={track.key} track={track} />)}
+        {data?.tracks?.slice(2).map((track) => <ArtistCard key={track.key} track={track} />)}
       </div>
     </div>
   );
